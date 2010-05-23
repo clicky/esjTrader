@@ -1,0 +1,37 @@
+esjTrader
+=========
+
+
+	esjTrader is a type-safe eventful financial trading protocol written in Java using the Session-Java extension developed at Imperial College London (see http://www.doc.ic.ac.uk/~rhu/sessionj.html). The application itself is written by Mohammad Murtuza Husain.
+
+
+1. Requirements
+===============
+
+Java SE SDK (http://java.sun.com/javase/downloads/) and Session-Java (http://code.google.com/p/sessionj/). You must add sessionj and sessionjc to your path variable.
+
+
+2. Compiling
+============
+
+Compile the source using 'make'. For individual source files, use the filename bar the .sj extension as a target for make, eg to compile only Trader.sj run 'make Trader'.
+
+
+3. Running
+==========
+
+3.1 Run the client (trader) side as follows:
+
+$ sessionj -cp build/ esjtrader.client.Trader s a HOST_S PORT_1 PORT_2 NAME
+
+where HOST_S is the hostname, IP address or localhost of the server, PORT_1 is the port you will communicate to the server with, PORT_2 is the port the server will communicate back over when the trade is complete, NAME is an arbitrary username.
+
+$ sessionj -cp build/ esjtrader.client.TradeListener d d PORT_2
+
+use the same value for PORT_2 as used when running Trader above.
+
+3.2 Run the server side as follows:
+
+$ sessionj -cp build/ esjtrader.server.Server s a PORT_1
+
+use the same value for PORT_1 as used when running Trader above.
